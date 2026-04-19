@@ -77,6 +77,34 @@ int Jugador::getTarjetasAmarillas() const { return tarjetasAmarillas; }
 int Jugador::getTarjetasRojas() const { return tarjetasRojas; }
 int Jugador::getFaltas() const { return faltas; }
 
+void Jugador::sumarGol() {
+    goles++;
+}
+
+void Jugador::sumarPartido() {
+    partidosJugados++;
+}
+
+void Jugador::sumarMinutos(int minutos) {
+    minutosJugados += minutos;
+}
+
+void Jugador::sumarAsistencia() {
+    asistencias++;
+}
+
+void Jugador::sumarAmarilla() {
+    tarjetasAmarillas++;
+}
+
+void Jugador::sumarRoja() {
+    tarjetasRojas++;
+}
+
+void Jugador::sumarFalta() {
+    faltas++;
+}
+
 void Jugador::imprimir() const {
     cout << "Jugador: " << nombre << " " << apellido
          << " | Camiseta: " << numeroCamiseta << endl;

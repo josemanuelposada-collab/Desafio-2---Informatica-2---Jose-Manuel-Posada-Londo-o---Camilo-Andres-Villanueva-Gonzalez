@@ -33,6 +33,14 @@ public:
     int getTarjetasRojas() const;
     int getFaltas() const;
 
+    void sumarGol();
+    void sumarPartido();
+    void sumarMinutos(int minutos);
+    void sumarAsistencia();
+    void sumarAmarilla();
+    void sumarRoja();
+    void sumarFalta();
+
     void imprimir() const;
 };
 
