@@ -7,6 +7,7 @@ SOURCES += \
     equipo.cpp \
     grupo.cpp \
     main.cpp \
+    torneo.cpp \
     utilidades.cpp \
     jugador.cpp \
     fecha.cpp \
@@ -15,6 +16,7 @@ SOURCES += \
 HEADERS += \
     equipo.h \
     grupo.h \
+    torneo.h \
     utilidades.h \
     jugador.h \
     fecha.h \
