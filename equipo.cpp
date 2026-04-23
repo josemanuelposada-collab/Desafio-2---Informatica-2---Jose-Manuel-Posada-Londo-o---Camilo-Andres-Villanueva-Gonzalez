@@ -31,7 +31,7 @@ Equipo::Equipo(const char* pais, const char* confederacion, const char*
     this->rankingFIFA = rankingFIFA;
     golesFavorHistoricos = gf;
     golesContraHistoricos = gc;
-        partidosGanados = pg;
+    partidosGanados = pg;
     partidosEmpatados = pe;
     partidosPerdidos = pp;
     tarjetasAmarillas = ta;
@@ -75,7 +75,7 @@ Equipo::~Equipo() {
     delete[] directorTecnico;
     delete[] plantilla;
 }
-    Equipo& Equipo::operator=(const Equipo& otro) {
+Equipo& Equipo::operator=(const Equipo& otro) {
     if(this != &otro) {
         delete[] pais;
         delete[] confederacion;
@@ -160,7 +160,7 @@ void Equipo::crearPlantillaArtificial() {
     for(int i = 0; i < cantidadJugadores; i++) {
         char nombre[20];
         char apellido[20];
-            char numero[10];
+        char numero[10];
         enteroACadena(i + 1, numero);
         copiarCadenaEnBuffer(nombre, "nombre");
         int lenNom = longitudCadena(nombre);

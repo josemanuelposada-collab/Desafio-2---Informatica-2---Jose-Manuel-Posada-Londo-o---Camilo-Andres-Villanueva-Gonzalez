@@ -16,7 +16,7 @@ char* copiarCadena(const char* origen) {
     for(int i = 0; i < n; i++) nueva[i] = origen[i];
     nueva[n] = '\0';
     return nueva;
-    }
+}
 bool sonIguales(const char* a, const char* b) {
     if(a == 0 || b == 0) return false;
     int i = 0;
@@ -46,7 +46,7 @@ int stringAEntero(const char* cad) {
         numero = numero * 10 + (cad[i] - '0');
         i++;
     }
-        return numero * signo;
+    return numero * signo;
 }
 void enteroACadena(int n, char* buffer) {
     if(n == 0) {
@@ -84,8 +84,7 @@ void intercambiarEnteros(int& a, int& b) {
     b = t;
 }
 void intercambiarPunteros(void*& a, void*& b) {
-        void* t = a;
+    void* t = a;
     a = b;
     b = t;
 }
-

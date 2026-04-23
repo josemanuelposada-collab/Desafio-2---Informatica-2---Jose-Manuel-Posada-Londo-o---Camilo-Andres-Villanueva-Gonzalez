@@ -11,7 +11,7 @@ Grupo::Grupo() {
 Grupo::Grupo(char letra) {
     this->letra = letra;
     cantidadEquipos = 0;
-        equipos = new Equipo*[4];
+    equipos = new Equipo*[4];
     for(int i = 0; i < 4; i++) equipos[i] = 0;
 }
 Grupo::Grupo(const Grupo& otro) {
@@ -52,7 +52,7 @@ bool Grupo::puedeAgregarEquipo(Equipo* equipo) const {
             }
         }
     }
-        if(sonIguales(equipo->getConfederacion(), "UEFA") && cantidadUEFA >= 2)
+    if(sonIguales(equipo->getConfederacion(), "UEFA") && cantidadUEFA >= 2)
         return false;
     return true;
 }

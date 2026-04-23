@@ -2,8 +2,8 @@
 #define GRUPO_H
 #include "equipo.h"
 class Grupo {
-    private:
-              char letra;
+private:
+    char letra;
     Equipo** equipos;
     int cantidadEquipos;
 public:

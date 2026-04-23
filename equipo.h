@@ -23,7 +23,7 @@ private:
 public:
     Equipo();
     Equipo(const char* pais, const char* confederacion, const char*
-           directorTecnico, int rankingFIFA,
+                                                            directorTecnico, int rankingFIFA,
            int gf, int gc, int pg, int pe, int pp, int ta, int tr, int faltas);
     Equipo(const Equipo& otro);
     ~Equipo();
@@ -65,6 +65,6 @@ public:
     void imprimirResumen() const;
     void reiniciarDatosGrupo();
     void registrarResultadoGrupo(int gf, int gc);
-        int* obtenerOnceAleatorio() const;
+    int* obtenerOnceAleatorio() const;
 };
 #endif
