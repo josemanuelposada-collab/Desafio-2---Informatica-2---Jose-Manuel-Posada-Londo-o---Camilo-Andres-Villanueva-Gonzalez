@@ -91,7 +91,7 @@ Partido& Partido::operator=(const Partido& otro) {
             for(int i = 0; i < cantidadConvocados1; i++) convocados1[i] =
                     otro.convocados1[i];
         }
-            if(cantidadConvocados2 > 0) {
+        if(cantidadConvocados2 > 0) {
             convocados2 = new RegistroJugadorPartido[cantidadConvocados2];
             for(int i = 0; i < cantidadConvocados2; i++) convocados2[i] =
                     otro.convocados2[i];
@@ -134,7 +134,7 @@ void Partido::prepararConvocados() {
     delete[] convocados2;
     cantidadConvocados1 = 11;
     cantidadConvocados2 = 11;
-        convocados1 = new RegistroJugadorPartido[11];
+    convocados1 = new RegistroJugadorPartido[11];
     convocados2 = new RegistroJugadorPartido[11];
     int* once1 = equipo1->obtenerOnceAleatorio();
     int* once2 = equipo2->obtenerOnceAleatorio();
@@ -170,7 +170,7 @@ int Partido::calcularGolesEsperados(Equipo* atacante, Equipo* defensor) const {
     double lambda = 0.6 * gfProm + 0.4 * gcProm + 1.35;
     int base = (int)lambda;
     double fraccion = lambda - base;
-        if(aleatorioEnRango(0, 99) < (int)(fraccion * 100.0)) base++;
+    if(aleatorioEnRango(0, 99) < (int)(fraccion * 100.0)) base++;
     if(base < 0) base = 0;
     if(base > 7) base = 7;
     return base;
@@ -209,7 +209,7 @@ void Partido::repartirGoles(RegistroJugadorPartido* registros, int cantidad,int 
         asignados++;
     }
 }
-    void Partido::simular(bool permitirEmpate) {
+void Partido::simular(bool permitirEmpate) {
     if(equipo1 == 0 || equipo2 == 0) return;
     goles1 = 0;
     goles2 = 0;
@@ -242,7 +242,7 @@ void Partido::actualizarHistoricos() {
     equipo2->setGolesFavorHistoricos(equipo2->getGolesFavorHistoricos() + goles2);
     equipo2->setGolesContraHistoricos(equipo2->getGolesContraHistoricos() +  goles1);
     if(sonIguales(etapa, "Grupos")) {
-            equipo1->registrarResultadoGrupo(goles1, goles2);
+        equipo1->registrarResultadoGrupo(goles1, goles2);
         equipo2->registrarResultadoGrupo(goles2, goles1);
     }
     if(goles1 > goles2) {
@@ -284,7 +284,7 @@ void Partido::imprimirGoleadores() const {
     }
     if(!hay) cout << "ninguno";
     cout << endl;
-        cout << "Goleadores " << equipo2->getPais() << ": ";
+    cout << "Goleadores " << equipo2->getPais() << ": ";
     hay = false;
     for(int i = 0; i < cantidadConvocados2; i++) {
         for(int j = 0; j < convocados2[i].getGoles(); j++) {

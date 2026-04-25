@@ -26,7 +26,7 @@ public:
     Partido(const Partido& otro);
     ~Partido();
     Partido& operator=(const Partido& otro);
-        void setFecha(const Fecha& fecha);
+    void setFecha(const Fecha& fecha);
     void setHora(const char* hora);
     void setSede(const char* sede);
     void setEtapa(const char* etapa);
