@@ -1,3 +1,4 @@
+#include <cmath>
 #include "partido.h"
 #include "utilidades.h"
 #include <iostream>
@@ -161,19 +162,37 @@ void Partido::calcularPosesion() {
     posesion2 = 100 - posesion1;
 }
 int Partido::calcularGolesEsperados(Equipo* atacante, Equipo* defensor) const {
-    int pjAtacante = atacante->getPartidosGanados() + atacante->getPartidosEmpatados() + atacante->getPartidosPerdidos();
-    int pjDefensor = defensor->getPartidosGanados() + defensor->getPartidosEmpatados() + defensor->getPartidosPerdidos();
+    int pjAtacante = atacante->getPartidosGanados()
+    + atacante->getPartidosEmpatados()
+        + atacante->getPartidosPerdidos();
+
+    int pjDefensor = defensor->getPartidosGanados()
+                     + defensor->getPartidosEmpatados()
+                     + defensor->getPartidosPerdidos();
+
     if(pjAtacante <= 0) pjAtacante = 1;
     if(pjDefensor <= 0) pjDefensor = 1;
-    double gfProm = (double)atacante->getGolesFavorHistoricos() / pjAtacante;
-    double gcProm = (double)defensor->getGolesContraHistoricos() / pjDefensor;
-    double lambda = 0.6 * gfProm + 0.4 * gcProm + 1.35;
-    int base = (int)lambda;
-    double fraccion = lambda - base;
-    if(aleatorioEnRango(0, 99) < (int)(fraccion * 100.0)) base++;
-    if(base < 0) base = 0;
-    if(base > 7) base = 7;
-    return base;
+
+    double GFA = (double)atacante->getGolesFavorHistoricos() / pjAtacante;
+    double GCB = (double)defensor->getGolesContraHistoricos() / pjDefensor;
+
+    double mu = 1.35;
+    double alfa = 0.6;
+    double beta = 0.4;
+
+    double lambda = mu * pow(GFA / mu, alfa) * pow(GCB / mu, beta);
+
+    int goles = (int)lambda;
+    double parteDecimal = lambda - goles;
+
+    if(aleatorioEnRango(0, 99) < (int)(parteDecimal * 100.0)) {
+        goles++;
+    }
+
+    if(goles < 0) goles = 0;
+    if(goles > 6) goles = 6;
+
+    return goles;
 }
 void Partido::simularTarjetasYFaltas(RegistroJugadorPartido* registros, int cantidad, int minutos) {
     for(int i = 0; i < cantidad; i++) {

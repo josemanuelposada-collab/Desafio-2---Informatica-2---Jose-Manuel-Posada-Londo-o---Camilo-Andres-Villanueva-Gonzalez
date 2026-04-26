@@ -5,6 +5,7 @@ CONFIG -= qt
 
 SOURCES += \
     main.cpp \
+    medidor_recursos.cpp \
     utilidades.cpp \
     jugador.cpp \
     equipo.cpp \
@@ -15,6 +16,7 @@ SOURCES += \
     torneo.cpp
 
 HEADERS += \
+    medidor_recursos.h \
     utilidades.h \
     jugador.h \
     equipo.h \

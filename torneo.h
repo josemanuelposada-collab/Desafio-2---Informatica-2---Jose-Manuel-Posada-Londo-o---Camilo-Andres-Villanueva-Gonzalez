@@ -4,6 +4,7 @@
 #include "equipo.h"
 #include "grupo.h"
 #include "partido.h"
+#include "medidor_recursos.h"
 
 class Torneo {
 private:
@@ -38,6 +39,8 @@ private:
     int cantidadPartidosFinales;
 
     Equipo** top4;
+
+    MedidorRecursos medidor;
 public:
     Torneo();
     ~Torneo();
@@ -65,6 +68,9 @@ public:
 
     int getCantidadEquipos() const;
     Equipo* getEquipo(int i) const;
+
+    long long calcularMemoriaTotal() const;
+    void mostrarRecursos(const char* funcionalidad);
 };
 
 #endif

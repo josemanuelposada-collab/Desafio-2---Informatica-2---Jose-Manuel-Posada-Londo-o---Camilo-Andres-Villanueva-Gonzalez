@@ -25,6 +25,7 @@ int main() {
         cout << "C. Mostrar clasificados a dieciseisavos\n";
         cout << "D. Simular fases finales\n";
         cout << "E. Mostrar estadisticas finales\n";
+        cout << "F. Mostrar recursos actuales\n";
         cout << "0. Salir\n";
         cout << "Seleccione una opcion: ";
 
@@ -69,6 +70,10 @@ int main() {
         case 'b':
             torneo.clasificarADieciseisavos();
             break;
+        case 'C':
+        case 'c':
+            torneo.mostrarClasificadosR16();
+            break;
         case 'D':
         case 'd':
             torneo.simularFasesFinales();
@@ -77,10 +82,9 @@ int main() {
         case 'e':
             torneo.mostrarEstadisticasFinales();
             break;
-
-        case 'C':
-        case 'c':
-            torneo.mostrarClasificadosR16();
+        case 'F':
+        case 'f':
+            torneo.mostrarRecursos("Estado actual del sistema");
             break;
         case '0':
             cout << "\nSaliendo del programa...\n";
