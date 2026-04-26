@@ -49,5 +49,6 @@ public:
     void actualizarHistoricos();
     void imprimir() const;
     void imprimirGoleadores() const;
+    void imprimirResumenDisciplinario() const;
 };
 #endif

@@ -45,8 +45,10 @@ long long MedidorRecursos::memoriaEquipo(const Equipo& equipo) const {
 
     Jugador* plantilla = equipo.getPlantilla();
 
-    for(int i = 0; i < equipo.getCantidadJugadores(); i++) {
-        total += memoriaJugador(plantilla[i]);
+    if(plantilla != 0) {
+        for(int i = 0; i < equipo.getCantidadJugadores(); i++) {
+            total += memoriaJugador(plantilla[i]);
+        }
     }
 
     return total;

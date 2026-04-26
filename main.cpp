@@ -26,6 +26,7 @@ int main() {
         cout << "D. Simular fases finales\n";
         cout << "E. Mostrar estadisticas finales\n";
         cout << "F. Mostrar recursos actuales\n";
+        cout << "G. Guardar historicos actualizados\n";
         cout << "0. Salir\n";
         cout << "Seleccione una opcion: ";
 
@@ -85,6 +86,10 @@ int main() {
         case 'F':
         case 'f':
             torneo.mostrarRecursos("Estado actual del sistema");
+            break;          
+        case 'G':
+        case 'g':
+            torneo.guardarHistoricos("historicos_actualizados.csv");
             break;
         case '0':
             cout << "\nSaliendo del programa...\n";

@@ -41,6 +41,24 @@ private:
     Equipo** top4;
 
     MedidorRecursos medidor;
+
+    unsigned char estado;
+
+    static const unsigned char EQUIPOS_CARGADOS = 1 << 0;
+    static const unsigned char JUGADORES_CREADOS = 1 << 1;
+    static const unsigned char BOMBOS_FORMADOS = 1 << 2;
+    static const unsigned char GRUPOS_SORTEADOS = 1 << 3;
+    static const unsigned char PARTIDOS_GRUPOS_GENERADOS = 1 << 4;
+    static const unsigned char FASE_GRUPOS_SIMULADA = 1 << 5;
+    static const unsigned char R16_GENERADO = 1 << 6;
+    static const unsigned char FINALES_SIMULADAS = 1 << 7;
+
+
+    void limpiarDatosSimulacion();
+    bool tieneEstado(unsigned char mascara) const;
+    void activarEstado(unsigned char mascara);
+    void desactivarEstadosDesde(unsigned char mascara);
+
 public:
     Torneo();
     ~Torneo();
@@ -65,6 +83,8 @@ public:
 
     void simularFasesFinales();
     void mostrarEstadisticasFinales();
+
+    void guardarHistoricos(const char* nombreArchivo);
 
     int getCantidadEquipos() const;
     Equipo* getEquipo(int i) const;

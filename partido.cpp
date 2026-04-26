@@ -314,3 +314,45 @@ void Partido::imprimirGoleadores() const {
     if(!hay) cout << "ninguno";
     cout << endl;
 }
+
+void Partido::imprimirResumenDisciplinario() const {
+    if(equipo1 == 0 || equipo2 == 0 || convocados1 == 0 || convocados2 == 0) {
+        return;
+    }
+
+    cout << "Convocados " << equipo1->getPais() << ": ";
+
+    for(int i = 0; i < cantidadConvocados1; i++) {
+        Jugador* j = convocados1[i].getJugador();
+
+        if(j != 0) {
+            cout << "#" << j->getNumeroCamiseta()
+            << "(G:" << convocados1[i].getGoles()
+            << ",A:" << convocados1[i].getAmarillas()
+            << ",R:" << convocados1[i].getRojas()
+            << ",F:" << convocados1[i].getFaltas()
+            << ",Min:" << convocados1[i].getMinutosJugados()
+            << ") ";
+        }
+    }
+
+    cout << endl;
+
+    cout << "Convocados " << equipo2->getPais() << ": ";
+
+    for(int i = 0; i < cantidadConvocados2; i++) {
+        Jugador* j = convocados2[i].getJugador();
+
+        if(j != 0) {
+            cout << "#" << j->getNumeroCamiseta()
+            << "(G:" << convocados2[i].getGoles()
+            << ",A:" << convocados2[i].getAmarillas()
+            << ",R:" << convocados2[i].getRojas()
+            << ",F:" << convocados2[i].getFaltas()
+            << ",Min:" << convocados2[i].getMinutosJugados()
+            << ") ";
+        }
+    }
+
+    cout << endl;
+}
