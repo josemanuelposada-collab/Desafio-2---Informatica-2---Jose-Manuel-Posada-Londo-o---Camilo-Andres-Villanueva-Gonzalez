@@ -9,38 +9,30 @@
 class Torneo {
 private:
     Equipo* equipos;
-    int cantidadEquipos;
-
     Grupo* grupos;
-    int cantidadGrupos;
-
-    Equipo** bombos[4];
-    int cantidadesBombos[4];
-
     Partido* partidosGrupos;
-    int cantidadPartidosGrupos;
-
     Equipo** clasificadosR16;
-    int cantidadClasificadosR16;
-
     Partido* partidosR16;
-    int cantidadPartidosR16;
-
     Partido* partidosR8;
-    int cantidadPartidosR8;
-
     Partido* partidosQF;
-    int cantidadPartidosQF;
-
     Partido* partidosSF;
-    int cantidadPartidosSF;
-
     Partido* partidosFinales;
-    int cantidadPartidosFinales;
-
     Equipo** top4;
 
+    Equipo** bombos[4];
+
     MedidorRecursos medidor;
+
+    int cantidadEquipos;
+    int cantidadGrupos;
+    int cantidadPartidosGrupos;
+    int cantidadClasificadosR16;
+    int cantidadPartidosR16;
+    int cantidadPartidosR8;
+    int cantidadPartidosQF;
+    int cantidadPartidosSF;
+    int cantidadPartidosFinales;
+    int cantidadesBombos[4];
 
     unsigned char estado;
 
@@ -52,7 +44,6 @@ private:
     static const unsigned char FASE_GRUPOS_SIMULADA = 1 << 5;
     static const unsigned char R16_GENERADO = 1 << 6;
     static const unsigned char FINALES_SIMULADAS = 1 << 7;
-
 
     void limpiarDatosSimulacion();
     bool tieneEstado(unsigned char mascara) const;

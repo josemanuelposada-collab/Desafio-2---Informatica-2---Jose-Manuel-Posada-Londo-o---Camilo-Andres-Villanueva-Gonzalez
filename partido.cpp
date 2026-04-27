@@ -281,14 +281,33 @@ void Partido::actualizarHistoricos() {
 }
 void Partido::imprimir() const {
     if(equipo1 == 0 || equipo2 == 0) return;
+
     cout << "Etapa: " << etapa << endl;
+
     cout << "Fecha: ";
     fecha.imprimir();
     cout << " | Hora: " << hora << " | Sede: " << sede << endl;
-    cout << equipo1->getPais() << " " << goles1 << " - " << goles2 << " " <<
-        equipo2->getPais();
-    if(huboProrroga) cout << " (Prorroga)";
+
+    cout << "Arbitros: ";
+    if(arbitros != 0) {
+        for(int i = 0; i < 3; i++) {
+            if(arbitros[i] != 0) {
+                cout << arbitros[i];
+                if(i < 2) cout << ", ";
+            }
+        }
+    } else {
+        cout << "sin asignar";
+    }
     cout << endl;
+
+    cout << equipo1->getPais() << " " << goles1 << " - " << goles2 << " "
+         << equipo2->getPais();
+
+    if(huboProrroga) cout << " (Prorroga)";
+
+    cout << endl;
+
     cout << "Posesion: " << equipo1->getPais() << " " << posesion1 << "% - "
          << posesion2 << "% " << equipo2->getPais() << endl;
 }

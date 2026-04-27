@@ -55,25 +55,24 @@ long long MedidorRecursos::memoriaEquipo(const Equipo& equipo) const {
 }
 
 long long MedidorRecursos::memoriaGrupo(const Grupo& grupo) const {
+    (void)grupo;
+
     long long total = sizeof(Grupo);
 
-    // Cada grupo reserva dinámicamente un arreglo de 4 punteros a Equipo
     total += 4 * sizeof(Equipo*);
 
     return total;
 }
 
 long long MedidorRecursos::memoriaPartido(const Partido& partido) const {
+    (void)partido;
+
     long long total = sizeof(Partido);
 
-    // Estimación simple:
-    // hora, sede, etapa, 3 árbitros y convocados.
-    // No podemos acceder directamente a todos porque son privados,
-    // entonces se estima lo dinámico principal.
-    total += 20;                 // hora
-    total += 30;                 // sede
-    total += 30;                 // etapa
-    total += 3 * 30;             // arbitros
+    total += 20;                         // hora
+    total += 30;                         // sede
+    total += 30;                         // etapa
+    total += 3 * 30;                     // arbitros
     total += 22 * sizeof(RegistroJugadorPartido); // 11 + 11 convocados aproximados
 
     return total;
